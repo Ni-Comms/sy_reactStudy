@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const elementC = React.createElement(
+        "h1",
+        { className: "title", children: ["hello world", "it's me", "good"] },
+        ["hi", "hello"]
+      );
+      //JSX 다루기
+      const text = "Hello, world!";
+      const titleClassName = "title";
+      const props = { className: titleClassName, children: text };
+      //const customH1 = <h1 {...props} />;
+      const customH1 = (
+        <h1 className={props.className} children={props.children} />
+      );
+      const elementJ = customH1;
+
+      const element = (
+        //React.Fragment
+        <>
+          <h1>Hi</h1>
+          <h3>Bye</h3>
+          <h5>Children</h5>
+        </>
+      );
+      //바닐라 JS
+      const elementV = React.createElement("h1", { children: "hello world" });
+      //const element = React.createElement("h1", { children: "hello world" });
+      //const element = React.createElement("h1", null, "hello world");
+      //element.textContent("hello, world!");
+      //rootElement.appendChild(element);
+      console.log(element);
+      //console.log(elementV);
+      ReactDOM.render(element, rootElement);
+    </script>
+  </body>
+</html>
