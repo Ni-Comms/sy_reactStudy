@@ -18,37 +18,33 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
 
-      const state = { keyword: "", typing: false, result: "" };
-
       const App = () => {
+        //let keyword = "";
+        const [keyword, setKeyword] = React.useState("");
+        //const keywardState = React.useState("");
+        //const keyword = keywardState[0];
+        //const setKeyword = keywardState[1];
+        const [result, setResult] = React.useState("");
+        const [typing, setTyping] = React.useState(false);
+
         function handleChange(event) {
-          setState({ typing: true, keyword: event.target.value });
-          console.log(event);
+          setKeyword(event.target.value);
+          setTyping(true);
+          //keyword = event.target.value;
         }
         function handleClick() {
-          setState({
-            typing: false,
-            result: `We find results of ${state.keyword}`
-          });
+          setTyping(false);
+          setResult(`We find results of ${keyword}`);
         }
         return (
           <>
             <input onChange={handleChange} />
             <button onClick={handleClick}>search</button>
-            <p>
-              {state.typing ? `Looking for ${state.keyword}...` : state.result}
-            </p>
+            <p>{typing ? `Looking for ${keyword}...` : result}</p>
           </>
         );
       };
-      function setState(newState) {
-        Object.assign(state, newState);
-        rendar();
-      }
-      function rendar() {
-        ReactDOM.render(<App />, rootElement);
-      }
-      rendar();
+      ReactDOM.render(<App />, rootElement);
     </script>
   </body>
 </html>
