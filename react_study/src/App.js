@@ -8,6 +8,7 @@ function App() {
   const handleChange = (event) => {
     //event 사용했을 때 이것은 꼭 해주어야함
     event.preventDefault();
+    //console.dir(event.target);
     if(event.target.id === "idValue"){
       if (event.target.value.length === 0) {
         setId("");
