@@ -25,12 +25,12 @@ function App() {
   //컴포넌트
   const ID = () => {
       return <div>
-          ID:<input id="idValue" defaultValue={id}  onChange={handleChange}/>
+          <label>ID:</label><input type="text" id="idValue" defaultValue={id}  onChange={handleChange}/>
           </div>
   }
   const PW = () => {
       return <div>
-          PW:<input id="pwValue" defaultValue={pw}  onChange={handleChange}/>
+          <label>PW:</label><input type="password" id="pwValue" defaultValue={pw}  onChange={handleChange}/>
           </div>
   }
   const Login = () => {
