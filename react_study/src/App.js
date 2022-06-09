@@ -7,12 +7,12 @@ function App() {
 
   const handleIdChange = (event) => {
     setId(event.target.value);
-    console.log(`length: ${event.target.value.length}`);
+    console.log(`id.length: ${event.target.value.length}`);
   }
 
   const handlePwChange = (event) => {
     setPw(event.target.value);
-    console.log(`length: ${event.target.value.length}`);
+    console.log(`pw.length: ${event.target.value.length}`);
   }
 
   const handleLoginClick = () => {
