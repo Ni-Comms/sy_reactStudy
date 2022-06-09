@@ -1,53 +1,51 @@
 import React from 'react'
 
 function App() {
-  const [message, setMessage] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(phoneNumber);
-  };
+  
+  const [id, setId] = React.useState("");
+  const [pw, setPw] = React.useState("");
 
   const handleChange = (event) => {
     event.preventDefault();
-    if (event.target.value.startsWith(0)) {
-      //alert("Phone Number is vaild");
-      setMessage("Phone Number is vaild");
-      setPhoneNumber(event.target.value);
-    } else if (event.target.value.length === 0) {
-      setPhoneNumber("");
-      setMessage("");
+    if(event.target.id === "idValue"){
+      if (event.target.value.length === 0) {
+      setId("");
     } else {
-      setPhoneNumber("");
-      setMessage("Phone Number should starts with 0");
-      //alert("Phone Number should starts with 0");
+      setId(event.target.value);
     }
+    }else if(event.target.id === "pwValue"){
+      if (event.target.value.length === 0) {
+      setPw("");
+      } else {
+      setPw(event.target.value);
+      }
+    }
+    
   };
 
+  const ID = () => {
+      return <div>
+          ID:<input id="idValue" defaultValue={id}  onChange={handleChange}/>
+          </div>
+  }
+  const PW = () => {
+      return <div>
+          PW:<input id="pwValue" defaultValue={pw}  onChange={handleChange}/>
+          </div>
+  }
+  const Login = () => {
+    
+      return <div>
+          <button disabled={id.length === 0 || pw.length === 0}>Login</button>
+          </div>
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="phone">Phone Number: </label>
-      <br />
-      <input
-        id="phone"
-        name="phone"
-        onChange={handleChange}
-        value={phoneNumber}
-      />
-      <br />
-      <p>{message}</p>
-      <br />
-      <button
-        type="submit"
-        disabled={
-          !phoneNumber.length === 0 || message !== "Phone Number is vaild"
-        }
-      >
-        Submit
-      </button>
-      <p>{phoneNumber}</p>
-    </form>
+    <>
+      <ID />
+      <PW />
+      <Login />
+    </>
   );
 }
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById("root");
+
+        const App = () => {
+
+        const [id, setId] = React.useState("");
+        const [pw, setPw] = React.useState("");
+
+        const handleChange = (event) => {
+          event.preventDefault();
+          if(event.target.id === "idValue"){
+            if (event.target.value.length === 0) {
+            setId("");
+          } else {
+            setId(event.target.value);
+          }
+          }else if(event.target.id === "pwValue"){
+            if (event.target.value.length === 0) {
+            setPw("");
+            } else {
+            setPw(event.target.value);
+            }
+          }
+          
+        };
+
+        const ID = () => {
+            return <div>
+                ID:<input id="idValue" defaultValue={id}  onChange={handleChange}/>
+                </div>
+        }
+        const PW = () => {
+            return <div>
+                PW:<input id="pwValue" defaultValue={pw}  onChange={handleChange}/>
+                </div>
+        }
+        const Login = () => {
+            return <div>
+                <button disabled={id.length === 0 || pw.length === 0}>Login</button>
+                </div>
+        }
+
+           return <>
+                <ID />
+                <PW />
+                <Login />
+           </>
+        };
+        ReactDOM.render(<App />, rootElement);
+    </script>
+  </body>
+</html>
