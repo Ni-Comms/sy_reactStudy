@@ -6,7 +6,7 @@ function App() {
   const [error, setError] =  React.useState(null);
   
   React.useEffect(() => {
-    fetch('https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.jso')
+    fetch('https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json')
     .then(function (response){
       return response.json();
     })
