@@ -1,5 +1,7 @@
 import React from 'react'
-import List from './components/2-9.List/List';
+import ControlledComponent from './components/2-10.Form/ControlledComponent';
+import UnControlledComponent from './components/2-10.Form/UnControlledComponent';
+//import List from './components/2-9.List/List';
 //import Extraction from './components/Extraction/Extraction'
 //import Composition from './components/2-4.Props/Composition'
 //import ClassComponent from './components/2-5.State/ClassComponent';
@@ -19,7 +21,9 @@ function App() {
       <Extraction/> */}
       {/* <Event/> */}
       {/* <Condition/> */}
-      <List/>
+      {/* <List/> */}
+      <ControlledComponent/>
+      <UnControlledComponent/>
     </div>
   );
 }
